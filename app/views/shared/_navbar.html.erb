@@ -10,7 +10,27 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <%# if user_signed_in? %>
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <p class="m-0 p-2">Welcome <%=  %></p>
+          </li>
+          <li class="nav-item active">
+            <p class="m-0 p-2">||</p>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} %>
+          </li>
+          <!-- Avatar image and dropdown commented for now
+          <li class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+          -->
+        <% else %>
           <li class="nav-item active">
             <p class="m-0 p-2">No account?</p>
           </li>
@@ -23,31 +43,7 @@
           <li class="nav-item">
             <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
           </li>
-
-          <li class="nav-item active">
-            <p class="m-0 p-2">||</p>
-          </li>
-
-          <li class="nav-item">
-            <%= link_to "Log out", destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} %>
-          </li>
-
-          <!-- Avatar image and dropdown commented for now
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-          -->
-
-        <%# else %>
-          <!--li class="nav-item"-->
-            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <!--/li-->
-        <%# end %>
+        <% end %>
       </ul>
     </div>
   </div>
