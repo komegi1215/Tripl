@@ -20,6 +20,7 @@
           <li class="nav-item">
             <%= link_to "Log out", destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} %>
           </li>
+
           <!-- Avatar image and dropdown commented for now
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -30,6 +31,7 @@
             </div>
           </li>
           -->
+
         <% else %>
           <li class="nav-item active">
             <p class="m-0 p-2">No account?</p>
