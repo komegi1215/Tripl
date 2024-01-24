@@ -1,11 +1,16 @@
 // Specific CSS for your home-page
 .navbar {
   background-color: #D3DDA6;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 500;
 }
 
 .footer {
   background-color: #D3DDA6;
-  position: absolute;
+  position: relative;
   bottom: 0;
   height: 60px;
+  display: flex;
 }
