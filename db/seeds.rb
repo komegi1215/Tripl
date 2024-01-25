@@ -48,3 +48,19 @@ Trip.create(
 )
 
 puts "Trips created successfully."
+
+Booking.destroy_all
+Booking.create(
+  user_id: 1,
+  trip_id: 1,
+  booking_status: 0,
+)
+
+Booking.create(
+  user_id: 1,
+  trip_id: 2,
+  booking_status: 1,
+)
+
+
+puts "Bookings created successfully."
