@@ -9,6 +9,4 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :show, :new, :create, :edit, :update]
   end
   resources :bookings, only: [:destroy]
-
-  get "trips/user/:user_id/bookings", to: "bookings#user_bookings", as: :user_bookings
 end
