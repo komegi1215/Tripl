@@ -1,2 +1,15 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<div class="container">
+  <h1><i class="fa-solid fa-location-dot"></i> <%= @trip.title %></h1>
+  <h2><i class="fa-solid fa-calendar-days"></i> <%= @trip.trip_date %></h2>
+  <p><%= @trip.description %></p>
+  <p>(Maybe can put number of current bookings here? or also in the show page as well?)</p>
+  <div class="d-flex mx-2 justify-content-between">
+    <%= simple_form_for [@trip, @booking] do |f| %>
+      <%= f.hidden_field :user_id %>
+      <%= f.hidden_field :trip_id %>
+      <%= f.submit "Confirm Booking", class: "btn btn-tripl"  %>
+    <% end %>
+
+    <%= link_to "Go back to see all available Adventures", trips_path, class: "btn btn-tripl" %>
+  </div>
+</div>

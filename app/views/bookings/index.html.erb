@@ -2,7 +2,7 @@
 
   <div class="card-product">
   <% @bookings.each do |booking| %>
-    <%= image_tag booking.trip.image_url %>
+    <%# <%= image_tag booking.trip.image_url %>
         <div class="card-product-infos">
             <h2><%= booking.trip.title %></h2>
             <h2><%= booking.booking_status %></h2>
