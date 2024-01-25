@@ -1,16 +1,18 @@
 <div class="container">
     <div class="cards">
       <% @trips.each do |trip| %>
-        <div class="card-trip">
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-          </div>
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= link_to trip.title, trip_path(trip) %></h2>
+        <%= link_to trip_path(trip) do %>
+          <div class="card-trip">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= trip.image_url %>)">
             </div>
-            <h2 class="card-trip-date"><%= trip.trip_date %></h2>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= trip.title %></h2>
+              </div>
+              <h2 class="card-trip-date"><%= trip.trip_date %></h2>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
 </div>
