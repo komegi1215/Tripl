@@ -1,2 +1,12 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<div class="container">
+  <h1><i class="fa-solid fa-location-dot"></i> <%= @trip.title %></h1>
+  <h2><i class="fa-solid fa-calendar-days"></i> <%= @trip.trip_date %></h2>
+  <p><%= @trip.description %></p>
+
+
+  <%= simple_form_for [@trip, @booking] do |f| %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :trip_id %>
+    <%= f.submit "Confirm Booking", class: "btn btn-tripl"  %>
+  <% end %>
+</div>

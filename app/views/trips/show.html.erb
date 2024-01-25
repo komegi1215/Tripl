@@ -2,7 +2,7 @@
   <div class="container-fluid m-2 p-4">
     <div class="d-flex justify-content-between">
       <h1><i class="fa-solid fa-location-dot"></i> <%= @trip.title %></h1>
-      <button class="mx-2 p-2 btn btn-tripl">Book this Trip!</button>
+      <%= link_to "Book this Trip!", new_trip_booking_path(@trip), class: "mx-2 p-2 btn btn-tripl" %>
     </div>
 
     <h2><i class="fa-solid fa-calendar-days"></i> <%= @trip.trip_date %></h2>
