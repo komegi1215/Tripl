@@ -25,8 +25,4 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to trips_path(@booking.trip), status: :see_other
   end
-
-  def user_bookings
-    @user = User.find(params[:user_id])
-  end
 end
