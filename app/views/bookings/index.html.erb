@@ -1,12 +1,27 @@
-<div class="container">
-
-  <div class="card-product">
+<div class="container container-booking">
+  <h1><i class="fa-solid fa-suitcase"></i> My Bookings</h1>
   <% @bookings.each do |booking| %>
-    <%# <%= image_tag booking.trip.image_url %>
-        <div class="card-product-infos">
+    <%= link_to trip_path(booking.trip), class: 'card-booking-link' do %>
+      <div class="card-booking">
+        <% if booking.trip.image_url.present? %>
+          <%= image_tag booking.trip.image_url %>
+        <% end %>
+        <div class="card-booking-infos">
+         <div class="card-booking-trip-info">
+            <h3><%= booking.trip.trip_date %></h3>
             <h2><%= booking.trip.title %></h2>
-            <h2><%= booking.booking_status %></h2>
+          </div>
+          <div class="card-booking-trip-status">
+          <% if booking.booking_status == 1 %>
+            <p><%= "booking confirmed" %></p>
+          <% elsif booking.booking_status == 2 %>
+            <p><%= "booking rejected" %></p>
+          <% else %>
+            <p><%= "booking requested" %></p>
+          <% end %>
+          </div>
         </div>
+      </div>
     <% end %>
-  </div>
+  <% end %>
 </div>
