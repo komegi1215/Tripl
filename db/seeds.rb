@@ -14,7 +14,7 @@ puts "Creating trips! "
 # Create 10 trips manually
 Trip.create(
   title: "We are going to Hogwarts!",
-  description: "Let's take a fun train trip to Hogwarts.",
+  description: "Let's take a fun train trip to Hogwarts. Highlights include: castle tour, free potions lecture, lunch at the great hall, and much more!",
   trip_date: Date.today + 1,
   user: users.sample,
   image_url: "https://wallpapers.com/images/hd/the-hogwarts-express-train-1920-x-986-wallpaper-6hqw6d0ba9rgrxol.jpg"
