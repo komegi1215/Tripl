@@ -1,10 +1,10 @@
-<div class="container d-flex flex-column justify-content-between" style="padding:30px>
+<div class="container d-flex flex-column justify-content-between" style="padding:30px;">
   <div class="container-fluid m-2 p-4">
     <div class="d-flex justify-content-between">
       <h1><i class="fa-solid fa-location-dot"></i> <%= @trip.title %></h1>
       <%= link_to "Book this Trip!", new_trip_booking_path(@trip), class: "mx-2 p-2 btn btn-tripl align-self-center" %>
     </div>
-<br>
+  <br>
   <%# --------------Carousel div-------------------- %>
   <div id="carouselExampleCaptions" class="carousel slide col-md-10" data-bs-ride="false">
   <div class="carousel-indicators">
@@ -49,14 +49,16 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>
-<br>
- <h2><i class="fa-solid fa-calendar-days"></i> <%= @trip.trip_date %></h2>
- <p><%= @trip.description %></p>
-
-
-  <div class="d-flex flex-row-reverse">
-    <%= link_to "Go back to all trips...", trips_path, class: "mx-2 p-2 btn btn-tripl align-self-center" %>
   </div>
-</div>
+<%# ----------------End of Carousel--------------- %>
+  <br>
+  <h2><i class="fa-solid fa-calendar-days"></i> <%= @trip.trip_date %></h2>
+  <p><%= @trip.description %></p>
+
+
+    <div class="d-flex flex-row-reverse">
+      <%= link_to "Go back to all trips...", trips_path, class: "mx-2 p-2 btn btn-tripl align-self-center" %>
+    </div>
+  </div>
+  </div>
 </div>
