@@ -2,8 +2,8 @@
 @import "home";
 
 .card-trip {
-  background: #FAECC6;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: white;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   height: 250px;
   width: 100%;
   border-radius: 10px;
@@ -19,8 +19,17 @@
 }
 
 .card-trip h2 {
+  font-family: "Nunito", Sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip h3 {
+  font-family: "Nunito", Sans-serif;
   font-size: 16px;
   font-weight: bold;
+  color: darkgray;
   margin: 0;
 }
 
