@@ -8,14 +8,26 @@
   border-bottom: 1px solid darkgray;
 }
 
-.footer {
-  background-color: #D3DDA6;
-  position: relative;
-  bottom: 0;
-  height: 60px;
+html, body {
+  height: 100%;
+}
+
+body {
   display: flex;
+  flex-direction: column;
+}
+
+#footer {
+  background-color: #D3DDA6;
+  height: auto;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .bg-tripl {
   background-color: #fffdf9;
+}
+
+.content {
+  flex: 1 0 auto;
 }
