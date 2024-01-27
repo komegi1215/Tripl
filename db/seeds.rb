@@ -52,6 +52,30 @@ Trip.create(
   image_url: "https://variety.com/wp-content/uploads/2018/11/2450_fp2_00097r_cmyk.jpg?w=1000"
 )
 
+Trip.create(
+  title: "Walk on the moon!",
+  description: "Neil Armstrong did it, you can do it too!",
+  trip_date: Date.today + 6,
+  user: users.sample,
+  image_url: "https://www.seti.org/sites/default/files/styles/original/public/2020-10/earth-view-from-moon-perspective-footprints-1400px.jpg?itok=hAH2R4i3"
+)
+
+Trip.create(
+  title: "Hell",
+  description: "Take a trip to the dark side!",
+  trip_date: Date.today + 7,
+  user: users.sample,
+  image_url: "https://cdn1.epicgames.com/ue/product/Screenshot/Untitled-1-1920x1080-40d871ba3129e359aaab454149e03063.jpg?resize=1&w=1920"
+)
+
+Trip.create(
+  title: "Disney Cruise Line",
+  description: "Sail the seas with Mickey and friends!",
+  trip_date: Date.today + 8,
+  user: users.sample,
+  image_url: "https://www.telegraph.co.uk/content/dam/travel/2023/10/17/TELEMMGLPICT000301775154_16975363433720_trans_NvBQzQNjv4Bqyntj27Do1A_uEF6jNSG5Nv4Xpit_DMGvdp2n7FDd82k.jpeg"
+)
+
 puts "Trips created successfully."
 
 Booking.destroy_all
