@@ -8,14 +8,16 @@
   border-bottom: 1px solid darkgray;
 }
 
-.footer {
+#footer {
   background-color: #D3DDA6;
-  position: relative;
+  position: absolute;
   bottom: 0;
-  height: 60px;
-  display: flex;
+  height: auto;
+  width: 100%;
 }
 
 .bg-tripl {
   background-color: #fffdf9;
+  min-height: 100vh;
+  position: relative;
 }
