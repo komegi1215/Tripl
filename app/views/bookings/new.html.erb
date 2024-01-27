@@ -2,14 +2,20 @@
   <h1><i class="fa-solid fa-location-dot"></i> <%= @trip.title %></h1>
   <h2><i class="fa-solid fa-calendar-days"></i> <%= @trip.trip_date %></h2>
   <p><%= @trip.description %></p>
-  <p>(Maybe can put number of current bookings here? or also in the show page as well?)</p>
+  <p> Bookings: <%= @trip.bookings.count %> </p>
+
+  <%= image_tag(@trip.image_url, class: "m-2 img-size2") %>
+
   <div class="d-flex mx-2 justify-content-between">
+
+    <%= link_to "Go back to see all available Adventures", trips_path, class: "btn btn-tripl" %>
+
     <%= simple_form_for [@trip, @booking] do |f| %>
       <%= f.hidden_field :user_id %>
       <%= f.hidden_field :trip_id %>
       <%= f.submit "Confirm Booking", class: "btn btn-tripl"  %>
     <% end %>
 
-    <%= link_to "Go back to see all available Adventures", trips_path, class: "btn btn-tripl" %>
+
   </div>
 </div>
