@@ -2,7 +2,7 @@
   <div class="container-fluid m-2 p-4">
     <div class="d-flex justify-content-between">
       <h1><i class="fa-solid fa-location-dot"></i> <%= @trip.title %></h1>
-      <%= link_to "Book this Trip!", new_trip_booking_path(@trip), class: "mx-2 p-2 btn btn-tripl align-self-center" %>
+      <%= link_to "Book this Trip", new_trip_booking_path(@trip), class: "btn btn-tripl" %>
       </div>
     <br>
     <%# --------------Carousel div-------------------- %>
@@ -57,7 +57,7 @@
 
 
       <div class="d-flex">
-        <%= link_to "Go back to all trips", trips_path, class: "mx-2 p-2 btn btn-tripl align-self-center" %>
+        <%= link_to "Go back to all trips", trips_path, class: "btn btn-tripl" %>
       </div>
     </div>
   </div>
