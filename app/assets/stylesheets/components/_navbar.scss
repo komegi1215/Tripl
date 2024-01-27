@@ -10,3 +10,13 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.user-tripl {
+  color: green;
+  text-decoration: none;
+}
+
+.user-tripl:hover {
+  color: rgb(55, 128, 55);
+  transition: ease-in 1s;
+}
