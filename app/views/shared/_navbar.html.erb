@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <p class="m-0 p-2">Welcome <span style="font-weight:bold"><%= current_user.first_name %></span></p>
+            <p class="m-0 p-2">Welcome <span style="font-weight:bold"><%= link_to current_user.first_name, bookings_path, class: "user-tripl", title: "Go to My Bookings" %></p>
           </li>
           <li class="nav-item active">
             <p class="m-0 p-2">||</p>
