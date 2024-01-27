@@ -1,16 +1,22 @@
+
 <div class="container container-booking">
   <h1><i class="fa-solid fa-suitcase"></i> My Bookings</h1>
   <% @bookings.each do |booking| %>
-    <%= link_to trip_path(booking.trip), class: 'card-booking-link' do %>
+
       <div class="card-booking">
-        <% if booking.trip.image_url.present? %>
-          <%= image_tag booking.trip.image_url %>
-        <% end %>
+        <div class="card-image">
+          <%= link_to trip_path(booking.trip), class: 'card-booking-link' do %>
+          <% if booking.trip.image_url.present? %>
+            <%= image_tag booking.trip.image_url %>
+          <% end %>
+        </div>
+
         <div class="card-booking-infos">
          <div class="card-booking-trip-info">
             <h3><%= booking.trip.trip_date %></h3>
             <h2><%= booking.trip.title %></h2>
           </div>
+          <% end %>
           <div class="card-booking-trip-status">
           <% if booking.booking_status == 1 %>
             <p><%= "booking confirmed" %></p>
@@ -19,9 +25,25 @@
           <% else %>
             <p><%= "booking requested" %></p>
           <% end %>
+           <div class="card-bucket">
+      <%= link_to booking_path(booking.id), class: "card-delete-icon-link",
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking"} do %>
+          <i class="fa-solid fa-trash fa-xs"></i>
+      <% end %>
+      </div>
+
           </div>
         </div>
+
+
       </div>
-    <% end %>
+
+
+
+
+
+
   <% end %>
+
+
 </div>
