@@ -12,13 +12,20 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <p class="m-0 p-2">Welcome <span style="font-weight:bold"><%= link_to current_user.first_name, bookings_path, class: "user-tripl", title: "Go to My Bookings" %></p>
+            <p class="m-0 p-2"><span style="font-weight: bold; style=text-align: center; font-family: Google Sans,Roboto,Arial,sans-serif;"><%= link_to "Create a new trip", new_trip_path, class: "user-tripl", title: "Go to New Trip" %></p>
           </li>
           <li class="nav-item active">
-            <p class="m-0 p-2">||</p>
+            <i class="fa-solid fa-bell" style="color: rgb(60, 60, 60);"></i>
           </li>
-          <li class="nav-item">
-            <%= link_to "Log out", destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} %>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://avatars.githubusercontent.com/u/144994323?v=4", class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Profile", "#", class: "dropdown-item" %>
+              <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
+              <hr>
+              <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
           </li>
 
           <!-- Avatar image and dropdown commented for now
@@ -34,16 +41,10 @@
 
         <% else %>
           <li class="nav-item active">
-            <p class="m-0 p-2">No account?</p>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <p class="m-0 p-2">||</p>
+            <p class="m-0 p-2"><span style="font-weight: bold; style=text-align: center; font-family: Google Sans,Roboto,Arial,sans-serif;"><%= link_to "Sign up", new_user_registration_path, class: "user-signup" %></p>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Sign In", new_user_session_path, class: "btn btn-tripl" %>
           </li>
         <% end %>
       </ul>

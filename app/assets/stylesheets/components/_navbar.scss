@@ -17,6 +17,29 @@
 }
 
 .user-tripl:hover {
-  color: rgb(55, 128, 55);
-  transition: ease-in 1s;
+  color: #f78c34;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+}
+
+.dropdown-item {
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-weight: lighter;
+  color: rgb(60, 60, 60)
+}
+
+.fa-bell {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.user-signup {
+  text-decoration: none;
+  color: inherit;
+  color: rgb(60, 60, 60);
+  margin-right: 10px;
 }
