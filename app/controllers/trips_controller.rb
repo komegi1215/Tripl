@@ -1,8 +1,11 @@
 class TripsController < ApplicationController
 
   def index
-    @trips = Trip.all
-
+    if params[:query].present?
+      @trips = Trip.search_by_title_and_description(params[:query])
+    else
+      @trips = Trip.all
+    end
   end
 
   def show
@@ -39,4 +42,5 @@ class TripsController < ApplicationController
   def trip_params
     params.require(:trip).permit(:title, :description, :trip_date)
   end
+
 end
