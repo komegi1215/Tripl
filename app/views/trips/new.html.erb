@@ -1,2 +1,11 @@
-<h1>Trips#new</h1>
-<p>Find me in app/views/trips/new.html.erb</p>
+<div class="container">
+  <h1><strong>Create a new trip</strong></h1>
+    <p>Describe your trip with the information people will see. Feel free to update any details in the future.</p>
+    <%= simple_form_for [@trip] do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :trip_date %>
+      <%= f.input :image_url, as: :file %>
+      <%= f.submit "Create trip", class: "btn btn-tripl" %>
+    <% end %>
+</div>
