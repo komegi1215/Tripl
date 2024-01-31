@@ -3,47 +3,90 @@
   <h1><i class="fa-solid fa-suitcase"></i> My Bookings</h1>
   <% @bookings.each do |booking| %>
 
-      <div class="card-booking">
-        <div class="card-image">
-          <%= link_to trip_path(booking.trip), class: 'card-booking-link' do %>
-          <% if booking.trip.image_url.present? %>
-            <%= image_tag booking.trip.image_url %>
-          <% end %>
-        </div>
+    <div class="card-booking">
+      <div class="card-image">
+        <%= link_to trip_path(booking.trip), class: 'card-booking-link' do %>
+        <% if booking.trip.image_url.present? %>
+          <%= image_tag booking.trip.image_url %>
+        <% end %>
+      </div>
 
-        <div class="card-booking-infos">
-         <div class="card-booking-trip-info">
-            <h3><%= booking.trip.trip_date %></h3>
-            <h2><%= booking.trip.title %></h2>
-          </div>
-          <% end %>
-          <div class="card-booking-trip-status">
+      <div class="card-booking-infos">
+        <div class="card-booking-trip-info">
+          <h3><%= booking.trip.trip_date %></h3>
+          <h2><%= booking.trip.title %></h2>
+        </div>
+        <% end %>
+
+        <div class="card-booking-trip-status">
           <% if booking.booking_status == 1 %>
-            <p><%= "booking confirmed" %></p>
+            <p><%= "Booking requested 🔶" %></p>
           <% elsif booking.booking_status == 2 %>
-            <p><%= "booking rejected" %></p>
-          <% else %>
-            <p><%= "booking requested" %></p>
+            <p><%= "Booking has been accepted ✅" %></p>
+          <% elsif booking.booking_status == 3 %>
+            <p><%= "Booking is rejected ❌" %></p>
           <% end %>
-           <div class="card-bucket">
-      <%= link_to booking_path(booking.id), class: "card-delete-icon-link",
-        data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking"} do %>
-          <i class="fa-solid fa-trash fa-xs"></i>
-      <% end %>
-      </div>
 
+          <div class="card-bucket">
+            <%= link_to booking_path(booking.id), class: "card-delete-icon-link",
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking"} do %>
+                <i class="fa-solid fa-trash fa-xs"></i>
+            <% end %>
           </div>
         </div>
-
-
       </div>
-
-
-
-
-
-
+    </div>
   <% end %>
 
+  <h1><i class="fa-solid fa-suitcase"></i> My Trips</h1>
+
+  <% @trips.each do |trip| %>
+    <div class="card-booking">
+      <div class="card-image">
+        <%= link_to trip_path(trip), class: 'card-booking-link' do %>
+        <% if trip.image_url.present? %>
+          <%= image_tag trip.image_url %>
+        <% end %>
+      </div>
+
+      <div class="card-booking-infos">
+        <div class="card-booking-trip-info">
+          <h3><%= trip.trip_date %></h3>
+          <h2><%= trip.title %></h2>
+        </div>
+        <% end %>
+
+        <div class="card-booking-trip-status">
+          <% trip.bookings.each do |booking| %>
+            <% case booking.booking_status %>
+            <% when 1 %>
+              <div class="d-flex align-items-center">
+                <p class="align-self-center">Booking requested by <%= booking.user.first_name %> </p>
+                <div class="align-self-center">
+                  <%= simple_form_for booking do |f| %>
+                    <%= f.input :booking_status, as: :hidden, input_html: { value: '2'} %>
+                    <%= f.submit 'Accept', class: 'btn btn-tripl' %>
+                  <% end %>
+                </div>
+                <div class="align-self-center">
+                  <%= simple_form_for booking do |f| %>
+                    <%= f.input :booking_status, as: :hidden, input_html: { value: '3'} %>
+                    <%= f.submit 'Reject', class: 'btn btn-tripl-danger' %>
+                  <% end %>
+                </div>
+              </div>
+
+            <% when 2 %>
+              <p>Booking accepted for <%= booking.user.first_name %></p>
+
+            <% when 3 %>
+              <p>Booking rejected for <%= booking.user.first_name %></p>
+            <% end %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
 
 </div>
