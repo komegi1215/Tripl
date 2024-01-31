@@ -12,7 +12,7 @@
         <%= f.input :password,
                     required: false,
                     input_html: { autocomplete: "current-password" } %>
-          <p style="font-family: Google Sans,Roboto,Arial,sans-serif;"><%= link_to "Forgot password", new_user_password_path, class: "user-tripl" %></p>
+          <p style="font-family: Google Sans,Roboto,Arial,sans-serif; text-align: right;"><%= link_to "Forgot password", new_user_password_path, class: "user-tripl" %></p>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 

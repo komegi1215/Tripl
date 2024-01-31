@@ -1,5 +1,4 @@
 class TripsController < ApplicationController
-
   def index
     if params[:query].present?
       @trips = Trip.search_by_title_and_description(params[:query])
@@ -42,5 +41,4 @@ class TripsController < ApplicationController
   def trip_params
     params.require(:trip).permit(:title, :description, :trip_date)
   end
-
 end
