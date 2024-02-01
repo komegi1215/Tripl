@@ -1,8 +1,71 @@
+.container-trip {
+  width: 1500px;
+}
 
+.cards-trips {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.card-trip {
+  margin: 0; /* Remove any default margins */
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards-trips {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards-trips {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards-trips {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards-trips {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards-trips {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.card-trip-item {
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
 
 .container-booking {
   display: flex;
   flex-direction: column;
+  width: 1500px;
 }
 
 .container-booking h1 {
@@ -107,9 +170,39 @@
 
 }
 
+.card-trip-status {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.card-trip-status p {
+  margin: 2px 0; /* Adjust the margin for each status */
+}
+
 .card-booking-trip-status p {
   display: flex;
   align-items: center;
   height: 100%;
   margin: 0;
+
+}
+
+.row-list {
+  justify-content: space-between;
+}
+
+.request-color {
+  color: blue;
+  margin: 0px;
+}
+
+.approve-color {
+  color: green;
+  padding: 0px;
+}
+
+.reject-color {
+  color: red;
+  padding: 0px;
 }
