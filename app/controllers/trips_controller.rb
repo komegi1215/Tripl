@@ -11,6 +11,8 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @bookings = @trip.bookings
+    @users = User.where(id: @bookings.pluck(:user_id))
   end
 
   def new

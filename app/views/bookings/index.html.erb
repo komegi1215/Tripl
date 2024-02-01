@@ -12,9 +12,9 @@
         <% end %>
         <div class="card-trip-status">
 
-            <span class ="request-color">Requested <%= trip.bookings.where(booking_status: 0).count %></span>
-            <span class ="approve-color">Approved  <%= trip.bookings.where(booking_status: 1).count %></span>
-            <span class ="reject-color">Rejected  <%= trip.bookings.where(booking_status: 0).count %></span>
+            <span class ="request-color">Pending <%= trip.bookings.where(booking_status: 0).count %></span>
+            <span class ="approve-color">Confirmed  <%= trip.bookings.where(booking_status: 1).count %></span>
+            <span class ="reject-color"> Cancelled <%= trip.bookings.where(booking_status: 0).count %></span>
 
           </div>
       <% end %>
@@ -22,42 +22,7 @@
   <% end %>
 </div>
 
-
-
-
 <div class="container container-booking">
-<div class="row row-list">
-    <div class="col-6">
-  <h1><i class="fa-solid fa-plane"></i> My Trips</h1>
-  <% @trips.each do |trip| %>
-      <div class="card-booking">
-        <div class="card-image">
-          <%= link_to trip_path(trip), class: 'card-booking-link' do %>
-          <% if trip.image_url.present? %>
-            <%= image_tag trip.image_url %>
-          <% end %>
-        </div>
-
-        <div class="card-booking-infos">
-         <div class="card-booking-trip-info">
-            <h3><%= trip.trip_date %></h3>
-            <h2><%= trip.title %></h2>
-         </div>
-          <% end %>
-          <div class="card-trip-status">
-           <p>
-            <p class ="request-color">Requested <%= trip.bookings.where(booking_status: 0).count %><br></p>
-            <p class ="approve-color">Approved  <%= trip.bookings.where(booking_status: 1).count %><br></p>
-            <p class ="reject-color">Rejected  <%= trip.bookings.where(booking_status: 0).count %><br></p>
-           </p>
-          </div>
-
-
-        </div>
-      </div>
-  <% end %>
-  </div>
-   <div class="col-6">
       <h1><i class="fa-solid fa-suitcase"></i> My Bookings</h1>
   <% @bookings.each do |booking| %>
       <div class="card-booking">
@@ -67,7 +32,12 @@
             <%= image_tag booking.trip.image_url %>
           <% end %>
         </div>
-        <% end %>
+        <div class="card-booking-infos">
+         <div class="card-booking-trip-info">
+            <h3><%= booking.trip.trip_date %></h3>
+            <h2><%= booking.trip.title %></h2>
+        </div>
+         <% end %>
         <div class="card-booking-trip-status">
           <% if booking.booking_status == 1 %>
             <p><%= "Booking requested 🔶" %></p>
@@ -87,56 +57,3 @@
       </div>
     </div>
   <% end %>
-
-  <h1><i class="fa-solid fa-suitcase"></i> My Trips</h1>
-
-  <% @trips.each do |trip| %>
-    <div class="card-booking">
-      <div class="card-image">
-        <%= link_to trip_path(trip), class: 'card-booking-link' do %>
-        <% if trip.image_url.present? %>
-          <%= image_tag trip.image_url %>
-        <% end %>
-      </div>
-
-      <div class="card-booking-infos">
-        <div class="card-booking-trip-info">
-          <h3><%= trip.trip_date %></h3>
-          <h2><%= trip.title %></h2>
-        </div>
-        <% end %>
-
-        <div class="card-booking-trip-status">
-          <% trip.bookings.each do |booking| %>
-            <% case booking.booking_status %>
-            <% when 1 %>
-              <div class="d-flex align-items-center">
-                <p class="align-self-center">Booking requested by <%= booking.user.first_name %> </p>
-                <div class="align-self-center">
-                  <%= simple_form_for booking do |f| %>
-                    <%= f.input :booking_status, as: :hidden, input_html: { value: '2'} %>
-                    <%= f.submit 'Accept', class: 'btn btn-tripl' %>
-                  <% end %>
-                </div>
-                <div class="align-self-center">
-                  <%= simple_form_for booking do |f| %>
-                    <%= f.input :booking_status, as: :hidden, input_html: { value: '3'} %>
-                    <%= f.submit 'Reject', class: 'btn btn-tripl-danger' %>
-                  <% end %>
-                </div>
-              </div>
-
-            <% when 2 %>
-              <p>Booking accepted for <%= booking.user.first_name %></p>
-
-            <% when 3 %>
-              <p>Booking rejected for <%= booking.user.first_name %></p>
-            <% end %>
-          <% end %>
-
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-</div>
