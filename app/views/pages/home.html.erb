@@ -1,8 +1,17 @@
 <div class="container-homepage">
-  <div style="text-align: center">
-    <%= link_to trips_path do %>
-    <i class="fa-solid fa-leaf" style="color: #f26419; font-size: 200px;"></i>
-      <%# <%= image_tag "Tripl.png", alt: "Tripl" %>
-    <% end %>
+  <div class="splash-container">
+    <%= image_tag('https://res.cloudinary.com/dg2l81go7/image/upload/v1706790718/pexels-pixabay-207896_cccbcj.jpg', alt: 'Background Image', class: 'splash-image') %>
+    <div class="logo-container">
+      <%= link_to trips_path do %>
+        <i class="logo fa-solid fa-leaf" style="color: white; font-size: 200px; opacity: 0.7"></i>
+      <% end %>
+    </div>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4" style="color: #f26419; font-weight: bold">Journey Together, Share Forever</h1>
+        <p class="lead" style="color: white;">Tripl is a fun way to avoid taking trips alone. Share your itinerary and
+          find new friends to travel with!</p>
+      </div>
+    </div>
   </div>
 </div>

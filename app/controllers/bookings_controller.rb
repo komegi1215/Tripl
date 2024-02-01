@@ -20,8 +20,16 @@ class BookingsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @booking.user = @user
     @booking.trip = @trip
-    @booking.save
-    redirect_to bookings_path
+    if @trip.user == @user
+      flash.alert = "You cannot book a trip you organized!"
+      render 'new', status: :unprocessable_entity
+    elsif @user.bookings.include?(@booking)
+      flash.alert = "You have already booked this trip!"
+      render 'new', status: :unprocessable_entity
+    else
+      @booking.save
+      redirect_to bookings_path
+    end
   end
 
   def edit

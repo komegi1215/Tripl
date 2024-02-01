@@ -4,6 +4,41 @@
   width: 400px;
 }
 
+<<<<<<< HEAD
 .carousel-inner {
   border-radius: 10px;
+=======
+.container-fluid {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-trip {
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-and-participants {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-name-list {
+  margin-left: 20px; /* Adjust the margin as needed */
+}
+
+@media (max-width: 768px) {
+  .carousel-and-participants {
+    flex-direction: column;
+  }
+
+  .container-name-list {
+    margin-left: 0; /* Reset margin for smaller screens */
+    margin-top: 10px; /* Add top margin for spacing on smaller screens */
+  }
+}
+
+.container-name-list p {
+  font-size: 20px;
+>>>>>>> 3b72d496c387e0445fdf5226945951675ef262f5
 }
