@@ -2,9 +2,9 @@ class TripsController < ApplicationController
   def index
     @user = current_user
     if params[:query].present?
-      @trips = Trip.search_by_title_and_description(params[:query]).excluding(@user.trips)
+      @trips = Trip.search_by_title_and_description(params[:query])#.excluding(@user.trips)
     else
-      @trips = Trip.all.excluding(@user.trips)
+      @trips = Trip.all#.excluding(@user.trips)
     end
   end
 
