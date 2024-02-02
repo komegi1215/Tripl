@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_31_143922) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
+    t.string "photos"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
