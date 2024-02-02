@@ -4,8 +4,6 @@
   <p><%= @trip.description %></p>
   <p> Bookings: <%= @trip.bookings.count %> </p>
 
-  <%= image_tag(@trip.image_url, class: "m-2 img-size2") %>
-
   <div class="d-flex mx-2 justify-content-between">
 
     <%= link_to "Go back to see all available Adventures", trips_path, class: "btn btn-tripl" %>

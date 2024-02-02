@@ -20,10 +20,11 @@ class BookingsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @booking.user = @user
     @booking.trip = @trip
+
     if @trip.user == @user
       flash.alert = "You cannot book a trip you organized!"
       render 'new', status: :unprocessable_entity
-    elsif @user.bookings.include?(@booking)
+    elsif booked_already?(@user.bookings, @trip.id)
       flash.alert = "You have already booked this trip!"
       render 'new', status: :unprocessable_entity
     else
@@ -53,7 +54,14 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-  # TODO: check your model, might be different than mine
-  params.require(:booking).permit(:booking_status)
+    params.require(:booking).permit(:booking_status)
+  end
+
+  def booked_already?(user_bookings, trip_id)
+    bookings = []
+    user_bookings.map do |booking|
+      bookings << booking.trip_id
+    end
+    bookings.include?(trip_id)
   end
 end
