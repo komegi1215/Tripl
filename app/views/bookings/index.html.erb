@@ -11,15 +11,14 @@
           </div>
         <% end %>
         <div class="card-trip-status">
-
             <span class ="request-color">Pending <%= trip.bookings.where(booking_status: 0).count %></span>
             <span class ="approve-color">Confirmed  <%= trip.bookings.where(booking_status: 1).count %></span>
             <span class ="reject-color"> Cancelled <%= trip.bookings.where(booking_status: 0).count %></span>
-
-          </div>
+        </div>
       <% end %>
     </div>
   <% end %>
+  </div>
 </div>
 
 <div class="container container-booking">
@@ -57,3 +56,4 @@
       </div>
     </div>
   <% end %>
+</div>
