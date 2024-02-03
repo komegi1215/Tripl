@@ -55,7 +55,7 @@
                 <ul class="align-self-start">
                   <li>
                     <div class="d-flex align-items-center">
-                      <p class="me-auto"><%= booking.user.first_name %> (<%= booking.user.email %>)</p>
+                      <p class="me-auto"><%= booking.user.first_name %></p>
                       <div class="align-self-center mx-2">
                         <%= simple_form_for booking do |f| %>
                           <%= f.input :booking_status, as: :hidden, input_html: { value: '2'} %>
