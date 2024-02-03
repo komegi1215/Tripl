@@ -1,0 +1,25 @@
+.card-pending {
+  height: fit-content;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top: 5px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.card-header {
+  overflow: hidden;
+  height: 120px;
+  width: fit-content;
+  background: white;
+  display: flex;
+  align-items: center;
+  margin: 8px;
+}
+
+.card-pending img {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+}
