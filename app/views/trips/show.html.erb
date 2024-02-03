@@ -39,6 +39,7 @@
           <%# -----------first name of the participants----------- %>
           <div class="container-name-list mt-8 w-75 h-100">
             <h4><i class="fa-solid fa-calendar-days" style="color: #f26419;"></i> <%= @trip.trip_date %></h4>
+            <br>
             <div class="row time-box">
               <div class="col-6 b-right">
                 <p class="mb-0"><strong>Start Time</strong></p>
@@ -49,6 +50,7 @@
                 <p class="mb-0"><%= @trip.end_time.strftime("%I:%M %p") %></p>
               </div>
             </div>
+            <br>
             <div style="padding: 10px">
               <h4><%= number_to_currency(@trip.budget, {unit: '$', precision: 0}) %></h4>
             </div>
