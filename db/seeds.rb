@@ -5,13 +5,31 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-users = User.all
+
 budget = [100000, 5000, 45000, 1500, 700, 3800, 4200, 12000, 21000]
 
 # Destroy all existing trips
 Trip.destroy_all
 Booking.destroy_all
 User.destroy_all
+
+User.create(
+  email: "test@email.com",
+  password: "123456",
+  first_name: "Meg",
+  last_name: "Test",
+)
+
+User.create(
+  email: "test@test.com",
+  password: "123456",
+  first_name: "Justin",
+  last_name: "Test",
+)
+
+users = User.all
+
+puts "Users created successfully."
 
 puts "Creating trips! "
 # Create 10 trips manually
@@ -89,33 +107,18 @@ Trip.create(
 
 puts "Trips created successfully."
 
+trips = Trip.all
 
 Booking.create(
-  user_id: 1,
-  trip_id: 1,
+  user_id: users.sample,
+  trip_id: trips.sample,
   booking_status: 0,
 )
 
 Booking.create(
-  user_id: 1,
-  trip_id: 2,
+  user_id: users.sample,
+  trip_id: trips.sample,
   booking_status: 1,
 )
 
 puts "Bookings created successfully."
-
-User.create(
-  email: "test@email.com",
-  password: "123456",
-  first_name: "Meg",
-  last_name: "Test",
-)
-
-User.create(
-  email: "test@test.com",
-  password: "123456",
-  first_name: "Justin",
-  last_name: "Test",
-)
-
-puts "Users created successfully."
