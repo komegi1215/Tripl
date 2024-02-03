@@ -10,15 +10,14 @@
       <% @trips.each do |trip| %>
         <div class="card-trip">
           <%= link_to trip_path(trip), class: 'card-booking-link' do %>
-            <% if trip.image_url.present? %>
-              <div class="card-trip-item" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= trip.image_url %>)">
+            <% if trip.photos.attached? %>
+              <div class="card-trip-item" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(trip.photos.first.key) %>)">
                 <%= trip.title %>
               </div>
             <% end %>
             <div class="card-trip-status">
-                <span class ="request-color">Pending <%= trip.bookings.where(booking_status: 1).count %></span>
                 <span class ="approve-color">Confirmed  <%= trip.bookings.where(booking_status: 2).count %></span>
-                <span class ="reject-color"> Cancelled <%= trip.bookings.where(booking_status: 3).count %></span>
+                <span class ="request-color">Pending <%= trip.bookings.where(booking_status: 1).count %></span>
             </div>
           <% end %>
         </div>
@@ -39,8 +38,8 @@
           <div class="card-header">
             <div class="card-image">
               <%= link_to trip_path(trip), class: 'card-booking-link' do %>
-                <% if trip.image_url.present? %>
-                  <%= image_tag trip.image_url %>
+                <% if trip.photos.present? %>
+                  <%= image_tag cl_image_path(trip.photos.first.key) %>
                 <% end %>
               <% end %>
             </div>
@@ -89,8 +88,8 @@
       <div class="card-booking">
         <div class="card-image">
           <%= link_to trip_path(booking.trip), class: 'card-booking-link' do %>
-          <% if booking.trip.image_url.present? %>
-            <%= image_tag booking.trip.image_url %>
+          <% if booking.trip.photos.present? %>
+            <%= image_tag cl_image_path(booking.trip.photos.first.key) %>
           <% end %>
         </div>
         <div class="card-booking-infos">
