@@ -43,6 +43,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :description, :trip_date, :start_time, :end_time, :budget, photos: [])
+    params.require(:trip).permit(:title, :description, :trip_date, :budget, :start_time, :end_time, photos: [])
   end
 end

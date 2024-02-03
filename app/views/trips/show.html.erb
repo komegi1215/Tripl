@@ -2,10 +2,9 @@
   <div class="container-fluid m-2 p-4">
     <div class="container-trip">
       <div class="d-flex justify-content-between">
-        <h1><i class="fa-solid fa-location-dot"></i> <%= @trip.title %></h1>
-        <%= link_to "Book this Trip", new_trip_booking_path(@trip), class: "btn btn-tripl" %>
+        <h2><i class="fa-solid fa-location-dot" style="color: #f26419;"></i> <%= @trip.title %></h2>
       </div>
-        <br>
+      <br>
       <div id="carouselTrips" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-and-participants">
           <%# --------------Carousel div-------------------- %>
@@ -16,44 +15,69 @@
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner cold-md-10">
-          <%# ---------------------First Image------------------- %>
+              <%# ---------------------First Image------------------- %>
               <% @trip.photos.each_with_index do |photo, index| %>
                 <div class="carousel-item <%= "active" if index == 0 %>">
                   <img src="<%= cl_image_path photo.key, height: 1200, width: 1600, crop: :fill %>" class="d-block w-100 img-size" alt="...">
                   <div class="carousel-caption d-none d-md-block">
-                  <%# <h5>First slide label</h5>
+                    <%# <h5>First slide label</h5>
                   <p>Some representative placeholder content for the first slide.</p> %>
                   </div>
                 </div>
               <% end %>
             </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselTrips" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselTrips" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTrips" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselTrips" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
           <%# ----------------End of Carousel--------------- %>
           <%# -----------first name of the participants----------- %>
-          <div class="container-name-list mt-4">
-            <h3><i class="fa-solid fa-user-group"></i> Friends list</h3>
-              <% @users.each do |user| %>
-                <p><%= user.first_name %></p>
-              <% end %>
+          <div class="container-name-list mt-8 w-75 h-100">
+            <h4><i class="fa-solid fa-calendar-days" style="color: #f26419;"></i> <%= @trip.trip_date %></h4>
+            <br>
+            <div class="row time-box">
+              <div class="col-6 b-right">
+                <p class="mb-0"><strong>Start Time</strong></p>
+                <p class="mb-0"><%= @trip.start_time.strftime("%I:%M %p") %></p>
+              </div>
+              <div class="col-6">
+                <p class="mb-0"><strong>End Time</strong></p>
+                <p class="mb-0"><%= @trip.end_time.strftime("%I:%M %p") %></p>
+              </div>
+            </div>
+            <br>
+            <div style="padding: 10px">
+              <h4><%= number_to_currency(@trip.budget, {unit: '$', precision: 0}) %></h4>
+            </div>
+            <%= link_to "Book this Trip", new_trip_booking_path(@trip), class: "btn btn-tripl" %>
           </div>
-      </div>
+        </div>
         <br>
-        <h2><i class="fa-solid fa-calendar-days"></i> <%= @trip.trip_date %></h2>
-        <h6>Hosted by <strong style="color: #f26419;"><%= @trip.user.first_name %></strong></h6>
+        <h5><% if @trip.user.image.attached? %>
+            <%= image_tag (cl_image_path @trip.user.image.key), crop: :fill, class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1677509740.jpg", class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+          Hosted by <strong style="color: #f26419;"><%= @trip.user.first_name %></strong></h5>
         <hr style="max-width: 1010px">
         <h4><strong>Details</strong></h4>
         <p><%= @trip.description %></p>
-        <div class="d-flex">
-          <%= link_to "Go back to all trips", trips_path, class: "btn btn-tripl" %>
-
+        <hr style="max-width: 1010px">
+        <h4><i class="fa-solid fa-user-group"></i> Travel buddies</h4>
+        <div class="d-flex justify-content-start">
+          <% @users.each do |user| %>
+            <% if user.image.attached? %>
+              <%= image_tag (cl_image_path current_user.image.key), crop: :fill, class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1677509740.jpg", class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <p><%= user.first_name %></p>
+          <% end %>
         </div>
       </div>
     </div>

@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_03_022442) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
+    t.string "photos"
     t.float "budget"
     t.date "ending_date"
     t.time "start_time"
