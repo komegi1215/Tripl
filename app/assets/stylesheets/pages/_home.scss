@@ -61,3 +61,67 @@ body {
   top: 65%;
   left: 2%;
 }
+
+.card-join {
+  background-size: cover;
+  background-position: center;
+  height: 220px;
+  display: flex;
+  align-items: left;
+  color: white;
+  background-color: rgb(242, 242, 242);
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-join h1 {
+  margin: 0;
+  color: rgb(60, 60, 60);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.card-join p {
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: lighter;
+  color: rgb(60, 60, 60);
+  max-width: 700px;
+}
+
+.card-join img {
+  height: 80%;
+  width: 400px;
+  object-fit: cover;
+  margin-top: 20px;
+  margin-left: 70px;
+}
+
+.join-container {
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.card-user-category {
+  background-size: cover;
+  background-position: center;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: #F26419;
+  height: 250px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.category-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+}
