@@ -3,32 +3,29 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <h2 style="color:#F26419;"><i class="fa-solid fa-leaf" style="color: #f26419;"></i>  Tripl</h2>
     <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
             <p class="m-0 p-2"><span style="font-weight: bold; style=text-align: center; font-family: Google Sans,Roboto,Arial,sans-serif;"><%= link_to "Create a new trip", new_trip_path, class: "user-tripl", title: "Go to New Trip" %></p>
-          </li>
-          <li class="nav-item active">
-            <i class="fa-solid fa-bell" style="color: rgb(60, 60, 60);"></i>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1677509740.jpg", class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", "#", class: "dropdown-item" %>
-              <%= link_to "Dashboard", bookings_path, class: "dropdown-item" %>
-              <hr>
-              <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-
-          <!-- Avatar image and dropdown commented for now
+            </li>
+            <li class="nav-item active">
+              <i class="fa-solid fa-bell" style="color: rgb(60, 60, 60);"></i>
+            </li>
+            <li class="nav-item dropdown">
+              <%= image_tag "https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1677509740.jpg", class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Profile", "#", class: "dropdown-item" %>
+                <%= link_to "Dashboard", bookings_path, class: "dropdown-item" %>
+                <hr>
+                <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+              </div>
+            </li>
+            <!-- Avatar image and dropdown commented for now
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -38,16 +35,15 @@
             </div>
           </li>
           -->
-
-        <% else %>
-          <li class="nav-item active">
-            <p class="m-0 p-2"><span style="font-weight: bold; style=text-align: center; font-family: Google Sans,Roboto,Arial,sans-serif;"><%= link_to "Sign up", new_user_registration_path, class: "user-signup" %></p>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Sign In", new_user_session_path, class: "btn btn-tripl" %>
-          </li>
-        <% end %>
-      </ul>
+          <% else %>
+            <li class="nav-item active">
+              <p class="m-0 p-2"><span style="font-weight: bold; style=text-align: center; font-family: Google Sans,Roboto,Arial,sans-serif;"><%= link_to "Sign up", new_user_registration_path, class: "user-signup" %></p>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign In", new_user_session_path, class: "btn btn-tripl" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
