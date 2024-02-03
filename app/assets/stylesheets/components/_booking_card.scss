@@ -171,7 +171,8 @@
 }
 
 .card-trip-status {
-  text-align: center;
+  text-align: start;
+  margin-left: 8px;
   margin-top: 8px;
   margin-bottom: 8px;
 }
@@ -185,7 +186,6 @@
   align-items: center;
   height: 100%;
   margin: 0;
-
 }
 
 .row-list {
@@ -193,7 +193,7 @@
 }
 
 .request-color {
-  color: blue;
+  color: rgba(182, 124, 6, 0.779);
   margin: 0px;
 }
 
