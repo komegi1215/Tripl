@@ -9,7 +9,7 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-4" style="color: #f26419; font-weight: bold">Journey Together, Share Forever</h1>
-        <p class="lead" style="color: white;">Tripl is a fun way to avoid taking day trips alone. Share your itinerary and
+        <p class="lead" style="color: white;">Tripl is a fun way to avoid taking trips alone. Share your itinerary and
           find new friends to travel with!</p>
       </div>
     </div>
@@ -52,31 +52,34 @@
             2024-02-08</h3>
         </div>
       </div>
-  </div>
-</div>
-<br>
-  <p style="font-size: 20px; text-align: right;"><%= link_to "See all trips", trips_path, class: "user-tripl" %></p>
-<div class="container">
-  <div class="card-join" style="linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-    <div class="join-container">
-      <h1>Join Tripl</h1>
-      <p>Embark on spontaneous adventures with our innovative trip app, connecting users for unforgettable day trips.</p>
-      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-tripl" %>
     </div>
-    <img src="https://freepngimg.com/thumb/travel/168126-travel-png-file-hd.png" />
-  </div>
-</div>
-<br>
-<div class="features-container">
-  <h1><strong>Tripl features</h1>
-  <br>
-  <div class="category-cards">
-    <div class="card-user-category" style="linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-      <h1 style="font-size: 55px; text-align: right"><i class="fa-solid fa-suitcase " style="color: #ffffff;"></i></h1>
-      <h1><strong>Book</h1>
-      <p style="font-size: 20px; max-width: 500px;">Adventure with people who have the same interests as you.</p>
+    <br>
+    <p style="font-size: 20px; text-align: right;"><%= link_to "See all trips", trips_path, class: "user-tripl" %></p>
+    <div class="container">
+      <div class="card-join" style="linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+        <div class="join-container">
+          <h1>Join Tripl</h1>
+          <p>Tripl is a fun way to avoid taking trips alone. Share your itinerary and
+            find new friends to travel with!</p>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-tripl" %>
+        </div>
+        <img src="https://freepngimg.com/thumb/travel/168126-travel-png-file-hd.png" />
+      </div>
     </div>
-  </div>
-</div>
-</div>
-
+    <br>
+    <div class="features-container">
+      <h1><strong>Tripl features</h1>
+        <br>
+        <div class="category-cards">
+          <div class="card-user-category" style="linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+            <h1 style="font-size: 55px; text-align: right"><i class="fa-solid fa-suitcase " style="color: #ffffff;"></i></h1>
+            <h1><strong>Book</h1>
+              <p style="font-size: 20px; max-width: 500px;">Adventure with people who have the same interests as you.</p>
+            </div>
+            <div class="card-user-category" style="linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+              <h1 style="font-size: 55px; text-align: right"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></h1>
+              <h1><strong>Create</h1>
+                <p style="font-size: 20px; max-width: 500px;">Lead your own excursion and bring people together for a good time.</p>
+              </div>
+            </div>
+          </div>
