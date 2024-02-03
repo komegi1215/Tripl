@@ -68,6 +68,16 @@
   margin-bottom: 40px;
 }
 
+.container-dashboard {
+  margin-top: 100px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.container-pending {
+  margin: 0;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

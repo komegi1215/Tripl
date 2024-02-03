@@ -4,6 +4,11 @@ class BookingsController < ApplicationController
     @user = current_user
     @bookings = @user.bookings
     @trips = @user.trips
+    if pending_any?(@user)
+      @trip_bookings = @user.trips
+    else
+      @trip_bookings = "none"
+    end
   end
 
   def show
@@ -63,5 +68,15 @@ class BookingsController < ApplicationController
       bookings << booking.trip_id
     end
     bookings.include?(trip_id)
+  end
+
+  def pending_any?(user)
+    bookings_status = []
+    user.trips.each do |trip|
+      trip.bookings.map do |booking|
+        bookings_status << booking.booking_status
+      end
+    end
+    bookings_status.include?(1)
   end
 end

@@ -19,12 +19,16 @@
         <div class="card-trip">
           <div class="card-category" style="background-image: url(<%= trip.photos.attached? ? cl_image_path(trip.photos.first.key) : 'https://images.unsplash.com/photo-1682686579976-879b74d6d7ea?q=80&w=2934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'%>);">
           </div>
-          <div class="card-trip-infos">
-            <div>
+          <div class="d-flex justify-content-between card-trip-infos">
+            <div class ="text-wrap align-self-center" style="width: 12rem;">
               <h2><%= trip.title %></h2>
             </div>
+            <div class="card-trip-budget text-end">
             <h3 class="card-trip-date"><i class="fa-regular fa-calendar" style="color: #f26419;"></i>
               <%= trip.trip_date %></h3>
+              <h3><%= number_to_currency(trip.budget, {unit: '$', precision: 0}) %></h3>
+
+            </div>
           </div>
         </div>
       <% end %>
