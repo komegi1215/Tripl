@@ -10,6 +10,8 @@ budget = [100000, 5000, 45000, 1500, 700, 3800, 4200, 12000, 21000]
 
 # Destroy all existing trips
 Trip.destroy_all
+Booking.destroy_all
+User.destroy_all
 
 puts "Creating trips! "
 # Create 10 trips manually
@@ -87,7 +89,7 @@ Trip.create(
 
 puts "Trips created successfully."
 
-Booking.destroy_all
+
 Booking.create(
   user_id: 1,
   trip_id: 1,
@@ -100,5 +102,20 @@ Booking.create(
   booking_status: 1,
 )
 
-
 puts "Bookings created successfully."
+
+User.create(
+  email: "test@email.com",
+  password: "123456",
+  first_name: "Meg",
+  last_name: "Test",
+)
+
+User.create(
+  email: "test@test.com",
+  password: "123456",
+  first_name: "Justin",
+  last_name: "Test",
+)
+
+puts "Users created successfully."
