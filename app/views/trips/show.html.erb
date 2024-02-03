@@ -47,6 +47,9 @@
       </div>
         <br>
         <h2><i class="fa-solid fa-calendar-days"></i> <%= @trip.trip_date %></h2>
+        <h6>Hosted by <strong style="color: #f26419;"><%= @trip.user.first_name %></strong></h6>
+        <hr style="max-width: 1010px">
+        <h4><strong>Details</strong></h4>
         <p><%= @trip.description %></p>
         <div class="d-flex">
           <%= link_to "Go back to all trips", trips_path, class: "btn btn-tripl" %>
