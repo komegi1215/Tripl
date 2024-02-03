@@ -2,8 +2,7 @@
   <div class="container-fluid m-2 p-4">
     <div class="container-trip">
       <div class="d-flex justify-content-between">
-        <h2><i class="fa-solid fa-location-dot"></i> <%= @trip.title %></h2>
-        <%= link_to "Book this Trip", new_trip_booking_path(@trip), class: "btn btn-tripl" %>
+        <h2><i class="fa-solid fa-location-dot" style="color: #f26419;"></i> <%= @trip.title %></h2>
       </div>
       <br>
       <div id="carouselTrips" class="carousel slide" data-bs-ride="carousel">
@@ -38,22 +37,46 @@
           </div>
           <%# ----------------End of Carousel--------------- %>
           <%# -----------first name of the participants----------- %>
-          <div class="container-name-list mt-8">
-            <h5><i class="fa-solid fa-calendar-days"></i> <%= @trip.trip_date %></h5>
+          <div class="container-name-list mt-8 w-75 h-100">
+            <h4><i class="fa-solid fa-calendar-days" style="color: #f26419;"></i> <%= @trip.trip_date %></h4>
+            <div class="row time-box">
+              <div class="col-6 b-right">
+                <p class="mb-0"><strong>Start Time</strong></p>
+                <p class="mb-0"><%= @trip.start_time.strftime("%I:%M %p") %></p>
+              </div>
+              <div class="col-6">
+                <p class="mb-0"><strong>End Time</strong></p>
+                <p class="mb-0"><%= @trip.end_time.strftime("%I:%M %p") %></p>
+              </div>
+            </div>
+            <div style="padding: 10px">
+              <h4><%= number_to_currency(@trip.budget, {unit: '$', precision: 0}) %></h4>
+            </div>
             <%= link_to "Book this Trip", new_trip_booking_path(@trip), class: "btn btn-tripl" %>
           </div>
         </div>
         <br>
-        <h5>Hosted by <strong style="color: #f26419;"><%= @trip.user.first_name %></strong></h5>
+        <h5><% if @trip.user.image.attached? %>
+            <%= image_tag (cl_image_path @trip.user.image.key), crop: :fill, class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1677509740.jpg", class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+          Hosted by <strong style="color: #f26419;"><%= @trip.user.first_name %></strong></h5>
         <hr style="max-width: 1010px">
         <h4><strong>Details</strong></h4>
         <p><%= @trip.description %></p>
         <hr style="max-width: 1010px">
-        <h3><i class="fa-solid fa-user-group"></i> Travel buddies</h3>
-        <% @users.each do |user| %>
-          <%= user.image %>
-          <p><%= user.first_name %></p>
-        <% end %>
+        <h4><i class="fa-solid fa-user-group"></i> Travel buddies</h4>
+        <div class="d-flex justify-content-start">
+          <% @users.each do |user| %>
+            <% if user.image.attached? %>
+              <%= image_tag (cl_image_path current_user.image.key), crop: :fill, class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1677509740.jpg", class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <p><%= user.first_name %></p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
