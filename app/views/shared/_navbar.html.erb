@@ -19,7 +19,7 @@
           </li>
           <li class="nav-item dropdown">
             <% if current_user.image.attached? %>
-              <%= image_tag (cl_image_path current_user.image.key), height: 50, width: 35, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= image_tag(cl_image_path(current_user.image.key), height: 50, width: 35, style: "object-fit: cover;", crop: :fill, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup' => true, 'aria-expanded' => false) %>
             <% else %>
               <%= image_tag "https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1677509740.jpg", class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
